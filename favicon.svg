@@ -1,4 +1,5 @@
-<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M32 3L57.1147 17.5V46.5L32 61L6.88526 46.5V17.5L32 3Z" fill="#4F46E5"/>
-  <path d="M32 14L47.5885 23V41L32 50L16.4115 41V23L32 14Z" fill="white"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="SnapGen">
+  <rect width="512" height="512" rx="112" fill="#1a1a1a"/>
+  <path d="M256 92L399.3 175V341L256 424L112.7 341V175L256 92Z" fill="#c9f158"/>
+  <path d="M256 168L333.5 212.75V302.25L256 347L178.5 302.25V212.75L256 168Z" fill="#1a1a1a"/>
 </svg>
