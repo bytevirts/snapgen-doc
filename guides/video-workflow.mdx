@@ -35,12 +35,12 @@ Poll every 10 to 20 seconds while a task is `queued` or `in_progress`. Stop on `
 
 ```javascript
 async function waitForVideo(id, model) {
-  const url = new URL(`https://api.freemodel.app/v1/videos/${id}`);
+  const url = new URL(`https://api.snapgen.org/v1/videos/${id}`);
   url.searchParams.set("model", model);
 
   for (let attempt = 0; attempt < 120; attempt += 1) {
     const response = await fetch(url, {
-      headers: { Authorization: `Bearer ${process.env.FREEMODEL_API_KEY}` },
+      headers: { Authorization: `Bearer ${process.env.SNAPGEN_API_KEY}` },
     });
     if (!response.ok) throw new Error(await response.text());
 
@@ -60,8 +60,8 @@ async function waitForVideo(id, model) {
 Stream the completed MP4 to storage instead of buffering the entire file in memory.
 
 ```bash
-curl -L "https://api.freemodel.app/v1/videos/$VIDEO_ID/content?model=$MODEL" \
-  -H "Authorization: Bearer $FREEMODEL_API_KEY" \
+curl -L "https://api.snapgen.org/v1/videos/$VIDEO_ID/content?model=$MODEL" \
+  -H "Authorization: Bearer $SNAPGEN_API_KEY" \
   --output video.mp4
 ```
 

@@ -1,31 +1,31 @@
 ---
 title: "Claude Code"
-description: "Connect Claude Code to FreeModel through the Anthropic Messages-compatible gateway."
+description: "Connect Claude Code to SnapGen through the Anthropic Messages-compatible gateway."
 ---
 
-Claude Code can connect to an LLM gateway through `ANTHROPIC_BASE_URL` and a bearer token. FreeModel exposes `POST /v1/messages` and model discovery for this workflow.
+Claude Code can connect to an LLM gateway through `ANTHROPIC_BASE_URL` and a bearer token. SnapGen exposes `POST /v1/messages` and model discovery for this workflow.
 
 <Note>
   Anthropic documents gateway connectivity but does not officially support
-  routing Claude Code to non-Claude models. FreeModel currently converts Claude
+  routing Claude Code to non-Claude models. SnapGen currently converts Claude
   Messages requests to its GPT routes; retest after major Claude Code upgrades.
 </Note>
 
 ## Prerequisites
 
 - Install Claude Code and confirm `claude --version` works.
-- Create a FreeModel API key and add prepaid balance.
+- Create a SnapGen API key and add prepaid balance.
 - Choose a current text model, such as `gpt-5.4-mini` or `gpt-5.5`.
 
 ## Configure the current shell
 
 ```bash
-export ANTHROPIC_BASE_URL="https://api.freemodel.app"
-export ANTHROPIC_AUTH_TOKEN="$FREEMODEL_API_KEY"
+export ANTHROPIC_BASE_URL="https://api.snapgen.org"
+export ANTHROPIC_AUTH_TOKEN="$SNAPGEN_API_KEY"
 export CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY=1
 ```
 
-Use `ANTHROPIC_AUTH_TOKEN`, not `ANTHROPIC_API_KEY`. FreeModel expects `Authorization: Bearer ...`; Claude Code sends that header for `ANTHROPIC_AUTH_TOKEN`.
+Use `ANTHROPIC_AUTH_TOKEN`, not `ANTHROPIC_API_KEY`. SnapGen expects `Authorization: Bearer ...`; Claude Code sends that header for `ANTHROPIC_AUTH_TOKEN`.
 
 ## Verify the gateway
 
@@ -51,7 +51,7 @@ A successful response has `type: "message"` and text under `content[0].text`.
 claude --model gpt-5.4-mini
 ```
 
-Run `/status` inside Claude Code. Confirm that the Anthropic base URL is `https://api.freemodel.app` and the credential source is `ANTHROPIC_AUTH_TOKEN`.
+Run `/status` inside Claude Code. Confirm that the Anthropic base URL is `https://api.snapgen.org` and the credential source is `ANTHROPIC_AUTH_TOKEN`.
 
 ## Persist the configuration
 
@@ -60,7 +60,7 @@ Add the gateway variables to the `env` object in `~/.claude/settings.json`:
 ```json
 {
   "env": {
-    "ANTHROPIC_BASE_URL": "https://api.freemodel.app",
+    "ANTHROPIC_BASE_URL": "https://api.snapgen.org",
     "ANTHROPIC_AUTH_TOKEN": "sk-xxxx",
     "CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY": "1"
   }
@@ -86,6 +86,6 @@ Prefer a shell secret manager or managed settings for production teams. Do not p
   </Accordion>
   <Accordion title="Requests return 401">
     Confirm the key is active and assigned to `ANTHROPIC_AUTH_TOKEN`. A key in
-    `ANTHROPIC_API_KEY` is sent through `x-api-key`, which FreeModel does not use.
+    `ANTHROPIC_API_KEY` is sent through `x-api-key`, which SnapGen does not use.
   </Accordion>
 </AccordionGroup>

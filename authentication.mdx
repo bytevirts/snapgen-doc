@@ -1,20 +1,20 @@
 ---
 title: "Authentication"
-description: "Create and use a FreeModel API key."
+description: "Create and use a SnapGen API key."
 ---
 
-FreeModel authenticates API requests with a secret API key.
+SnapGen authenticates API requests with a secret API key.
 
 ## Create an API key
 
-1. Sign in to the [FreeModel Console](https://freemodel.app/settings).
+1. Sign in to the [SnapGen Console](https://snapgen.org/settings).
 2. Open **API Keys**.
 3. Create a new key and copy it when shown.
 
 Use the key in the `Authorization` header.
 
 ```bash
-curl https://api.freemodel.app/v1/models \
+curl https://api.snapgen.org/v1/models \
   -H "Authorization: Bearer sk-xxxx"
 ```
 

@@ -1,9 +1,9 @@
 ---
 title: "Errors"
-description: "Handle FreeModel API errors."
+description: "Handle SnapGen API errors."
 ---
 
-FreeModel returns errors in the OpenAI-compatible envelope.
+SnapGen returns errors in the OpenAI-compatible envelope.
 
 ```json
 {
@@ -24,15 +24,15 @@ Use the HTTP status code together with `error.type` and `error.code` to decide h
 | 400        | `invalid_request`         | A video request has a duration or aspect parameter unsupported by the selected model. | Use the model-specific values in [Video generation](/api-reference/video-generation). |
 | 402        | `insufficient_user_quota` | Your prepaid balance is empty or insufficient.                                        | Add balance in the Console under **Billing**.                                         |
 | 429        | Rate limit error          | Too many requests were sent in a short period.                                        | Back off and retry with exponential delay.                                            |
-| 500-599    | Server error              | FreeModel or an upstream provider could not complete the request.                     | Retry transient failures with backoff.                                                |
+| 500-599    | Server error              | SnapGen or an upstream provider could not complete the request.                     | Retry transient failures with backoff.                                                |
 
 ## Video request error
 
 A video request with a duration unsupported by the selected model can return a `400` `invalid_request` error. Gemini Omni models require `"10"`; Seedance 2 models accept `"5"`, `"10"`, or `"15"`.
 
 ```bash
-curl https://api.freemodel.app/v1/videos \
-  -H "Authorization: Bearer $FREEMODEL_API_KEY" \
+curl https://api.snapgen.org/v1/videos \
+  -H "Authorization: Bearer $SNAPGEN_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "gemini-omni-t2v",

@@ -33,7 +33,7 @@ Create a model response from a list of chat messages. Choose an exact model page
 Set `stream` to `true`. The response uses server-sent events (SSE).
 
 ```bash
-curl -N https://api.freemodel.app/v1/chat/completions \
+curl -N https://api.snapgen.org/v1/chat/completions \
   -H "Authorization: Bearer sk-xxxx" \
   -H "Content-Type: application/json" \
   -d '{
@@ -50,7 +50,7 @@ Each event begins with `data:`. Read events until the `data: [DONE]` marker.
 ```text
 data: {"id":"chatcmpl_01HXYZ","object":"chat.completion.chunk","choices":[{"index":0,"delta":{"role":"assistant","content":"Hello"},"finish_reason":null}]}
 
-data: {"id":"chatcmpl_01HXYZ","object":"chat.completion.chunk","choices":[{"index":0,"delta":{"content":" from FreeModel"},"finish_reason":null}]}
+data: {"id":"chatcmpl_01HXYZ","object":"chat.completion.chunk","choices":[{"index":0,"delta":{"content":" from SnapGen"},"finish_reason":null}]}
 
 data: [DONE]
 ```
@@ -61,7 +61,7 @@ data: [DONE]
 
 <RequestExample>
 ```bash Curl
-curl https://api.freemodel.app/v1/chat/completions \
+curl https://api.snapgen.org/v1/chat/completions \
   -H "Authorization: Bearer sk-xxxx" \
   -H "Content-Type: application/json" \
   -d '{

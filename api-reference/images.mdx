@@ -4,7 +4,7 @@ description: "Common request and response rules for image models."
 api: "POST /v1/images/generations"
 ---
 
-FreeModel exposes an OpenAI-compatible image generations endpoint. Select the exact model page under **Image Series** for its price and output rules.
+SnapGen exposes an OpenAI-compatible image generations endpoint. Select the exact model page under **Image Series** for its price and output rules.
 
 <ParamField body="model" type="string" required>
   An image model ID returned by [`GET /v1/models`](/api-reference/list-models).
@@ -20,15 +20,15 @@ FreeModel exposes an OpenAI-compatible image generations endpoint. Select the ex
 </ParamField>
 
 <ParamField body="n" type="integer" default="1">
-  Request one image. The current FreeModel image routes do not support batch
+  Request one image. The current SnapGen image routes do not support batch
   generation.
 </ParamField>
 
 ## Generate an image
 
 ```bash
-curl https://api.freemodel.app/v1/images/generations \
-  -H "Authorization: Bearer $FREEMODEL_API_KEY" \
+curl https://api.snapgen.org/v1/images/generations \
+  -H "Authorization: Bearer $SNAPGEN_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "gpt-image-2",
@@ -45,8 +45,8 @@ Image generation is synchronous and can take 20 to 60 seconds. Set a client time
 The response contains base64 image bytes at `data[0].b64_json`.
 
 ```bash
-curl https://api.freemodel.app/v1/images/generations \
-  -H "Authorization: Bearer $FREEMODEL_API_KEY" \
+curl https://api.snapgen.org/v1/images/generations \
+  -H "Authorization: Bearer $SNAPGEN_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"model":"gpt-image-2","prompt":"An indigo paper lantern"}' \
   | jq -r '.data[0].b64_json' \

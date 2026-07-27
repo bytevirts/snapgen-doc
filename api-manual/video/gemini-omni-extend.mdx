@@ -4,7 +4,7 @@ description: "Extend a Gemini Omni source asset into a 10-second result."
 api: "POST /v1/videos"
 ---
 
-`gemini-omni-extend` continues motion from supplied public source assets. The FreeModel compatibility request still uses the `image_urls` field for one to five source URLs.
+`gemini-omni-extend` continues motion from supplied public source assets. The SnapGen compatibility request still uses the `image_urls` field for one to five source URLs.
 
 | Property | Value |
 | --- | --- |
@@ -22,7 +22,7 @@ api: "POST /v1/videos"
 </ParamField>
 
 <ParamField body="seconds" type="string" required>
-  Set to `"10"`. FreeModel validates this fixed task duration.
+  Set to `"10"`. SnapGen validates this fixed task duration.
 </ParamField>
 
 <ParamField body="size" type="string" default="1280x720">
@@ -31,14 +31,14 @@ api: "POST /v1/videos"
 
 <ParamField body="image_urls" type="string[]" required>
   One to five publicly reachable source URLs. The field name is part of the
-  FreeModel compatibility API even when the source represents extension input.
+  SnapGen compatibility API even when the source represents extension input.
 </ParamField>
 
 ## Request
 
 ```bash
-curl https://api.freemodel.app/v1/videos \
-  -H "Authorization: Bearer $FREEMODEL_API_KEY" \
+curl https://api.snapgen.org/v1/videos \
+  -H "Authorization: Bearer $SNAPGEN_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "gemini-omni-extend",
@@ -52,6 +52,6 @@ curl https://api.freemodel.app/v1/videos \
 The response returns a queued task `id`. Follow the [Video API workflow](/api-reference/video-generation) to poll and download.
 
 <Note>
-  `seconds` is required by the public FreeModel request even though the
+  `seconds` is required by the public SnapGen request even though the
   extension route does not forward a separate duration field upstream.
 </Note>

@@ -1,18 +1,18 @@
 ---
-title: "FreeModel API"
-sidebarTitle: "FreeModel API overview"
+title: "SnapGen API"
+sidebarTitle: "SnapGen API overview"
 description: "Use one API key for GPT text, image generation, and asynchronous video generation."
 ---
 
-FreeModel is a prepaid AI gateway with OpenAI-compatible, Anthropic-compatible, and Gemini-compatible text protocols plus image and video generation APIs.
+SnapGen is a prepaid AI gateway with OpenAI-compatible, Anthropic-compatible, and Gemini-compatible text protocols plus image and video generation APIs.
 
-Change your base URL to `https://api.freemodel.app/v1`, keep your API key on the server, and select a model ID from the live catalog.
+Change your base URL to `https://api.snapgen.org/v1`, keep your API key on the server, and select a model ID from the live catalog.
 
 ## Quick start
 
 <Steps>
   <Step title="Create an API key">
-    [Create an account](https://freemodel.app/sign-up), add balance, then create
+    [Create an account](https://snapgen.org/sign-up), add balance, then create
     a key under **Console > API Keys**.
   </Step>
   <Step title="Choose a model">
@@ -26,8 +26,8 @@ Change your base URL to `https://api.freemodel.app/v1`, keep your API key on the
 </Steps>
 
 ```bash
-curl https://api.freemodel.app/v1/chat/completions \
-  -H "Authorization: Bearer $FREEMODEL_API_KEY" \
+curl https://api.snapgen.org/v1/chat/completions \
+  -H "Authorization: Bearer $SNAPGEN_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "gpt-5.4-mini",
@@ -66,10 +66,10 @@ All four text protocols were verified against the live gateway. The gateway conv
 
 ## Billing and availability
 
-FreeModel uses prepaid USD balance with no subscription. Text routes are token-billed. GPT Image 2 and video routes use fixed or duration-based request prices.
+SnapGen uses prepaid USD balance with no subscription. Text routes are token-billed. GPT Image 2 and video routes use fixed or duration-based request prices.
 
 <Note>
-  The [live models page](https://freemodel.app/models) is the source of truth for
+  The [live models page](https://snapgen.org/models) is the source of truth for
   current availability and pricing. Call [`GET /v1/models`](/api-reference/list-models)
   before hardcoding a model ID.
 </Note>

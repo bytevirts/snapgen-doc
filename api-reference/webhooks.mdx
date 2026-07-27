@@ -4,20 +4,20 @@ description: "Add a webhook URL when submitting a task and receive the result by
 ---
 
 Add a `webhook` field when you submit an asynchronous task. When the task
-finishes (succeeds or fails), FreeModel POSTs the result to your URL. No
+finishes (succeeds or fails), SnapGen POSTs the result to your URL. No
 registration, no extra credentials — just your API key.
 
 ## Quick start
 
 ```bash
-curl https://api.freemodel.app/v1/videos \
-  -H "Authorization: Bearer $FREEMODEL_API_KEY" \
+curl https://api.snapgen.org/v1/videos \
+  -H "Authorization: Bearer $SNAPGEN_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "gemini-omni-t2v",
     "prompt": "A paper airplane glides through a sunlit library",
     "seconds": "10",
-    "webhook": "https://your-server.com/freemodel/callback",
+    "webhook": "https://your-server.com/snapgen/callback",
     "webhook_secret": "your-random-secret"
   }'
 ```
@@ -79,7 +79,7 @@ Failed tasks arrive with `"status": "failed"`, `"result": null`, and
 | --- | --- |
 | Publicly reachable | Internal/private addresses (`127.0.0.1`, `10.x`, `192.168.x`, …) are rejected at submit time. |
 | Protocol | `http` or `https` (use `https` in production). |
-| Not our domain | URLs pointing at `freemodel.app` are rejected. |
+| Not our domain | URLs pointing at `snapgen.org` are rejected. |
 
 An invalid `webhook` value fails the submission with an `invalid_request`
 error — fix the URL and resubmit.

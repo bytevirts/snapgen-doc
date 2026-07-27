@@ -32,8 +32,8 @@ api: "POST /v1/videos"
 ## Request
 
 ```bash
-curl https://api.freemodel.app/v1/videos \
-  -H "Authorization: Bearer $FREEMODEL_API_KEY" \
+curl https://api.snapgen.org/v1/videos \
+  -H "Authorization: Bearer $SNAPGEN_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "video-ds-2.0",
@@ -50,6 +50,6 @@ The response returns a queued task `id`. Follow the [Video API workflow](/api-re
   value, not a public API field. Use `aspect_ratio` for this model.
 </Warning>
 
-<Card title="Open the Seedance 2 playground" icon="play" href="https://freemodel.app/models/seedance-2">
+<Card title="Open the Seedance 2 playground" icon="play" href="https://snapgen.org/models/seedance-2">
   Choose the standard route, duration, and aspect ratio in the Portal.
 </Card>

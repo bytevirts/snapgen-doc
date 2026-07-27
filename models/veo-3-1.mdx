@@ -18,7 +18,7 @@ Veo 3.1 is available through the OpenAI-compatible Videos API. All seven routes 
 <Card
   title="Open Veo 3.1 Playground"
   icon="play"
-  href="https://freemodel.app/models/veo3-1"
+  href="https://snapgen.org/models/veo3-1"
 >
   Choose any Veo 3.1 route, set the aspect ratio, and optionally add public
   start and end frame URLs.
@@ -27,8 +27,8 @@ Veo 3.1 is available through the OpenAI-compatible Videos API. All seven routes 
 ## Generate from text
 
 ```bash
-curl https://api.freemodel.app/v1/videos \
-  -H "Authorization: Bearer $FREEMODEL_API_KEY" \
+curl https://api.snapgen.org/v1/videos \
+  -H "Authorization: Bearer $SNAPGEN_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "veo3-1-lite-4k",
@@ -43,8 +43,8 @@ curl https://api.freemodel.app/v1/videos \
 Add one or two public `image_urls` to the Lite, Fast, or Quality routes. The first URL is the start frame. When you provide two URLs, the second is the end frame.
 
 ```bash
-curl https://api.freemodel.app/v1/videos \
-  -H "Authorization: Bearer $FREEMODEL_API_KEY" \
+curl https://api.snapgen.org/v1/videos \
+  -H "Authorization: Bearer $SNAPGEN_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "veo3-1-fast",
@@ -65,11 +65,11 @@ curl https://api.freemodel.app/v1/videos \
 Save the returned `id`. Include the same model ID while polling and downloading:
 
 ```bash
-curl "https://api.freemodel.app/v1/videos/$VIDEO_ID?model=veo3-1-lite-4k" \
-  -H "Authorization: Bearer $FREEMODEL_API_KEY"
+curl "https://api.snapgen.org/v1/videos/$VIDEO_ID?model=veo3-1-lite-4k" \
+  -H "Authorization: Bearer $SNAPGEN_API_KEY"
 
-curl -L "https://api.freemodel.app/v1/videos/$VIDEO_ID/content?model=veo3-1-lite-4k" \
-  -H "Authorization: Bearer $FREEMODEL_API_KEY" \
+curl -L "https://api.snapgen.org/v1/videos/$VIDEO_ID/content?model=veo3-1-lite-4k" \
+  -H "Authorization: Bearer $SNAPGEN_API_KEY" \
   --output video.mp4
 ```
 

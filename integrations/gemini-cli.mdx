@@ -1,9 +1,9 @@
 ---
 title: "Gemini CLI"
-description: "Point Google Gemini CLI at FreeModel's Gemini native compatibility endpoint."
+description: "Point Google Gemini CLI at SnapGen's Gemini native compatibility endpoint."
 ---
 
-Gemini CLI uses Google's native `generateContent` protocol. FreeModel exposes that protocol at `/v1beta/models/{model}:generateContent` and accepts the current GPT text model IDs.
+Gemini CLI uses Google's native `generateContent` protocol. SnapGen exposes that protocol at `/v1beta/models/{model}:generateContent` and accepts the current GPT text model IDs.
 
 ## Install and verify
 
@@ -12,11 +12,11 @@ npm install -g @google/gemini-cli
 gemini --version
 ```
 
-## Configure FreeModel
+## Configure SnapGen
 
 ```bash
-export GEMINI_API_KEY="$FREEMODEL_API_KEY"
-export GOOGLE_GEMINI_BASE_URL="https://api.freemodel.app"
+export GEMINI_API_KEY="$SNAPGEN_API_KEY"
+export GOOGLE_GEMINI_BASE_URL="https://api.snapgen.org"
 ```
 
 The correct current base URL variable is `GOOGLE_GEMINI_BASE_URL`. Do not use `GEMINI_BASE_URL`; Gemini CLI does not read that variable.
@@ -42,11 +42,11 @@ Add the two exports to your shell profile or a local `.env` file that is exclude
 
 ```bash
 export GEMINI_API_KEY="sk-xxxx"
-export GOOGLE_GEMINI_BASE_URL="https://api.freemodel.app"
+export GOOGLE_GEMINI_BASE_URL="https://api.snapgen.org"
 ```
 
 <Note>
-  Gemini CLI's native request format was verified against FreeModel with
+  Gemini CLI's native request format was verified against SnapGen with
   `gpt-5.4-mini`. The gateway translates the request; the model is not a Google
   Gemini model despite the client protocol.
 </Note>
@@ -56,18 +56,18 @@ export GOOGLE_GEMINI_BASE_URL="https://api.freemodel.app"
 <AccordionGroup>
   <Accordion title="Gemini CLI says both GOOGLE_API_KEY and GEMINI_API_KEY are set">
     Run `unset GOOGLE_API_KEY` before starting the CLI. Gemini CLI otherwise
-    prefers `GOOGLE_API_KEY`, which may send the wrong credential to FreeModel.
+    prefers `GOOGLE_API_KEY`, which may send the wrong credential to SnapGen.
   </Accordion>
   <Accordion title="Requests still go to Google's API">
     Check that the variable name is exactly `GOOGLE_GEMINI_BASE_URL` and the
-    value is `https://api.freemodel.app` without `/v1` or `/v1beta`.
+    value is `https://api.snapgen.org` without `/v1` or `/v1beta`.
   </Accordion>
   <Accordion title="The model is rejected">
     Use an ID returned by [`GET /v1/models`](/api-reference/list-models). Do not
-    use a Gemini model name unless it is present in the FreeModel catalog.
+    use a Gemini model name unless it is present in the SnapGen catalog.
   </Accordion>
   <Accordion title="A native Gemini feature is unavailable">
-    FreeModel converts the core content-generation protocol. Google-specific
+    SnapGen converts the core content-generation protocol. Google-specific
     account, grounding, caching, or hosted-tool features may not be available.
   </Accordion>
 </AccordionGroup>

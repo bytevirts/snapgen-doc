@@ -16,16 +16,16 @@ description: "Generate 1K images through the gpt-image-2-all route."
 <Card
   title="Open GPT Image 2 All Playground"
   icon="wand-magic-sparkles"
-  href="https://freemodel.app/models/gpt-image-2-all"
+  href="https://snapgen.org/models/gpt-image-2-all"
 >
-  Run a generation with your FreeModel balance and inspect the live price.
+  Run a generation with your SnapGen balance and inspect the live price.
 </Card>
 
 ## Generate an image
 
 ```bash
-curl https://api.freemodel.app/v1/images/generations \
-  -H "Authorization: Bearer $FREEMODEL_API_KEY" \
+curl https://api.snapgen.org/v1/images/generations \
+  -H "Authorization: Bearer $SNAPGEN_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "gpt-image-2-all",

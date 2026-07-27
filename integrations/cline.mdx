@@ -1,6 +1,6 @@
 ---
 title: "Cline"
-description: "Configure Cline's OpenAI Compatible provider for FreeModel."
+description: "Configure Cline's OpenAI Compatible provider for SnapGen."
 ---
 
 Cline has a dedicated **OpenAI Compatible** provider with fields for the base URL, API key, model ID, context settings, and displayed prices.
@@ -15,11 +15,11 @@ Cline has a dedicated **OpenAI Compatible** provider with fields for the base UR
     Set **API Provider** to **OpenAI Compatible**.
   </Step>
   <Step title="Enter gateway settings">
-    Set **Base URL** to `https://api.freemodel.app/v1`, enter your FreeModel API
+    Set **Base URL** to `https://api.snapgen.org/v1`, enter your SnapGen API
     key, and set **Model ID** to an exact text model ID.
   </Step>
   <Step title="Set displayed pricing">
-    Enter the model's input and output price from its FreeModel model page so
+    Enter the model's input and output price from its SnapGen model page so
     Cline's local cost estimate uses the correct rate.
   </Step>
   <Step title="Verify">
@@ -33,8 +33,8 @@ Cline has a dedicated **OpenAI Compatible** provider with fields for the base UR
 | Field | Value |
 | --- | --- |
 | API Provider | OpenAI Compatible |
-| Base URL | `https://api.freemodel.app/v1` |
-| API Key | Your FreeModel key |
+| Base URL | `https://api.snapgen.org/v1` |
+| API Key | Your SnapGen key |
 | Model ID | `gpt-5.4-mini` |
 | Input price | `$0.25` per 1M tokens |
 | Output price | `$1.50` per 1M tokens |
@@ -57,7 +57,7 @@ Cline has a dedicated **OpenAI Compatible** provider with fields for the base UR
     copy an exact returned model ID.
   </Accordion>
   <Accordion title="Cline's cost display is wrong">
-    Cline does not fetch FreeModel pricing automatically. Update its model
+    Cline does not fetch SnapGen pricing automatically. Update its model
     configuration with the input and output rates shown on the individual model
     page.
   </Accordion>

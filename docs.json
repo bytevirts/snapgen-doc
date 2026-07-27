@@ -1,8 +1,8 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "FreeModel",
-  "description": "FreeModel API documentation for text, image, and video models, integrations, guides, and troubleshooting.",
+  "name": "SnapGen",
+  "description": "SnapGen API documentation for text, image, and video models, integrations, guides, and troubleshooting.",
   "colors": {
     "primary": "#4F46E5",
     "light": "#7C6FF0",
@@ -17,13 +17,13 @@
     "links": [
       {
         "label": "Console",
-        "href": "https://freemodel.app/settings"
+        "href": "https://snapgen.org/settings"
       }
     ],
     "primary": {
       "type": "button",
       "label": "Get API Key",
-      "href": "https://freemodel.app/sign-up"
+      "href": "https://snapgen.org/sign-up"
     }
   },
   "navigation": {
@@ -180,7 +180,7 @@
   },
   "api": {
     "mdx": {
-      "server": "https://api.freemodel.app",
+      "server": "https://api.snapgen.org",
       "auth": {
         "method": "bearer"
       }

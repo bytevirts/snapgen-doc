@@ -8,11 +8,11 @@ List the models available to your API key before selecting a model in a request.
 
 Use each returned `data[].id` as the `model` value for compatible endpoints. The response is scoped to your key, so it is more reliable than a hardcoded model list.
 
-For current public pricing, visit the [FreeModel models page](https://freemodel.app/models).
+For current public pricing, visit the [SnapGen models page](https://snapgen.org/models).
 
 <RequestExample>
 ```bash Curl
-curl https://api.freemodel.app/v1/models \
+curl https://api.snapgen.org/v1/models \
   -H "Authorization: Bearer sk-xxxx"
 ```
 </RequestExample>
@@ -26,7 +26,7 @@ curl https://api.freemodel.app/v1/models \
       "id": "gpt-5.4-mini",
       "object": "model",
       "created": 1730000000,
-      "owned_by": "freemodel"
+      "owned_by": "snapgen"
     }
   ]
 }

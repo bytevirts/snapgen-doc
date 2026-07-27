@@ -1,9 +1,9 @@
 ---
 title: "Cursor"
-description: "Use FreeModel text models through Cursor's OpenAI API key settings."
+description: "Use SnapGen text models through Cursor's OpenAI API key settings."
 ---
 
-Cursor includes an OpenAI API key section with an **Override OpenAI Base URL** option. Point that option to FreeModel and add the exact model ID you want to use.
+Cursor includes an OpenAI API key section with an **Override OpenAI Base URL** option. Point that option to SnapGen and add the exact model ID you want to use.
 
 ## Configure Cursor
 
@@ -12,12 +12,12 @@ Cursor includes an OpenAI API key section with an **Override OpenAI Base URL** o
     Open **Cursor Settings > Models** and expand the API key settings.
   </Step>
   <Step title="Add the API key">
-    Enable **OpenAI API Key**, enter your FreeModel key, and keep it in Cursor's
+    Enable **OpenAI API Key**, enter your SnapGen key, and keep it in Cursor's
     credential store.
   </Step>
   <Step title="Override the base URL">
     Enable **Override OpenAI Base URL** and enter
-    `https://api.freemodel.app/v1`.
+    `https://api.snapgen.org/v1`.
   </Step>
   <Step title="Add a model">
     Under **Models**, choose **Add model** and enter an exact ID such as
@@ -25,7 +25,7 @@ Cursor includes an OpenAI API key section with an **Override OpenAI Base URL** o
   </Step>
   <Step title="Verify">
     Select the custom model in chat and send a short prompt. Review usage in the
-    FreeModel Console.
+    SnapGen Console.
   </Step>
 </Steps>
 
@@ -56,7 +56,7 @@ Cursor includes an OpenAI API key section with an **Override OpenAI Base URL** o
   </Accordion>
   <Accordion title="Cursor keeps calling OpenAI">
     Confirm **Override OpenAI Base URL** is enabled and contains the full
-    `https://api.freemodel.app/v1` value.
+    `https://api.snapgen.org/v1` value.
   </Accordion>
   <Accordion title="Agent tools behave differently">
     Custom models can differ in tool-calling behavior. Test file edits and

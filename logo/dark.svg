@@ -1,5 +1,5 @@
-<svg width="174" height="32" viewBox="0 0 174 32" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="FreeModel">
+<svg width="174" height="32" viewBox="0 0 174 32" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SnapGen">
   <path d="M16 2.5L27.6913 9.25V22.75L16 29.5L4.30866 22.75V9.25L16 2.5Z" fill="#7C6FF0"/>
   <path d="M16 8L22.5 11.75V19.25L16 23L9.5 19.25V11.75L16 8Z" fill="white"/>
-  <text x="40" y="22.5" fill="white" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="21" font-weight="700">FreeModel</text>
+  <text x="40" y="22.5" fill="white" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif" font-size="21" font-weight="700">SnapGen</text>
 </svg>

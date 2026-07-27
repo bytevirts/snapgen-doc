@@ -64,8 +64,8 @@ response object.
 
 <RequestExample>
 ```bash Curl
-curl https://api.freemodel.app/v1/tasks/task_01HXYZ \
-  -H "Authorization: Bearer $FREEMODEL_API_KEY"
+curl https://api.snapgen.org/v1/tasks/task_01HXYZ \
+  -H "Authorization: Bearer $SNAPGEN_API_KEY"
 ```
 
 ```python Python
@@ -74,8 +74,8 @@ import os
 from urllib.request import Request, urlopen
 
 request = Request(
-    "https://api.freemodel.app/v1/tasks/task_01HXYZ",
-    headers={"Authorization": f"Bearer {os.environ['FREEMODEL_API_KEY']}"},
+    "https://api.snapgen.org/v1/tasks/task_01HXYZ",
+    headers={"Authorization": f"Bearer {os.environ['SNAPGEN_API_KEY']}"},
 )
 
 with urlopen(request) as response:
@@ -86,8 +86,8 @@ print(task["status"], task.get("result"))
 
 ```javascript Node.js
 const response = await fetch(
-  "https://api.freemodel.app/v1/tasks/task_01HXYZ",
-  { headers: { Authorization: `Bearer ${process.env.FREEMODEL_API_KEY}` } },
+  "https://api.snapgen.org/v1/tasks/task_01HXYZ",
+  { headers: { Authorization: `Bearer ${process.env.SNAPGEN_API_KEY}` } },
 );
 const task = await response.json();
 console.log(task.status, task.result);

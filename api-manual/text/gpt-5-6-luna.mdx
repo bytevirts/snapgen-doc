@@ -1,10 +1,10 @@
 ---
 title: "GPT-5.6 Luna"
-description: "Use the lowest-priced GPT-5.6 route on FreeModel."
+description: "Use the lowest-priced GPT-5.6 route on SnapGen."
 api: "POST /v1/chat/completions"
 ---
 
-`gpt-5.6-luna` is the lowest-priced GPT-5.6 route in the current FreeModel catalog. Treat it as a distinct model ID when setting limits, monitoring usage, and comparing output quality.
+`gpt-5.6-luna` is the lowest-priced GPT-5.6 route in the current SnapGen catalog. Treat it as a distinct model ID when setting limits, monitoring usage, and comparing output quality.
 
 | Property | Value |
 | --- | --- |
@@ -24,8 +24,8 @@ api: "POST /v1/chat/completions"
 ## Request
 
 ```bash
-curl https://api.freemodel.app/v1/chat/completions \
-  -H "Authorization: Bearer $FREEMODEL_API_KEY" \
+curl https://api.snapgen.org/v1/chat/completions \
+  -H "Authorization: Bearer $SNAPGEN_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "gpt-5.6-luna",
@@ -46,5 +46,5 @@ Read generated text from `choices[0].message.content`. See [Chat Completions pro
 
 <Tip>
   Benchmark Luna against your real prompts before selecting it only by price.
-  FreeModel does not alias it to another GPT-5.6 route.
+  SnapGen does not alias it to another GPT-5.6 route.
 </Tip>

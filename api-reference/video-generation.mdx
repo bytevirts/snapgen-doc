@@ -4,7 +4,7 @@ description: "Submit, monitor, and download an asynchronous video task."
 api: "POST /v1/videos"
 ---
 
-All FreeModel video routes use the same asynchronous workflow. Choose a model from the **Video Series** sidebar, submit a request, save the returned `id`, and poll until the task completes.
+All SnapGen video routes use the same asynchronous workflow. Choose a model from the **Video Series** sidebar, submit a request, save the returned `id`, and poll until the task completes.
 
 The model page defines the accepted duration, aspect ratio, resolution, and reference-image rules. Do not send values from one model family to another.
 
@@ -35,15 +35,15 @@ The model page defines the accepted duration, aspect ratio, resolution, and refe
 </ParamField>
 
 <ParamField body="webhook" type="string">
-  Optional public callback URL. FreeModel sends the final task object when the
+  Optional public callback URL. SnapGen sends the final task object when the
   task completes or fails.
 </ParamField>
 
 ## Submit a task
 
 ```bash
-curl https://api.freemodel.app/v1/videos \
-  -H "Authorization: Bearer $FREEMODEL_API_KEY" \
+curl https://api.snapgen.org/v1/videos \
+  -H "Authorization: Bearer $SNAPGEN_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "video-ds-2.0-fast",
@@ -68,11 +68,11 @@ curl https://api.freemodel.app/v1/videos \
 Include the same `model` query value while polling and downloading.
 
 ```bash
-curl "https://api.freemodel.app/v1/videos/task_01HXYZ?model=video-ds-2.0-fast" \
-  -H "Authorization: Bearer $FREEMODEL_API_KEY"
+curl "https://api.snapgen.org/v1/videos/task_01HXYZ?model=video-ds-2.0-fast" \
+  -H "Authorization: Bearer $SNAPGEN_API_KEY"
 
-curl -L "https://api.freemodel.app/v1/videos/task_01HXYZ/content?model=video-ds-2.0-fast" \
-  -H "Authorization: Bearer $FREEMODEL_API_KEY" \
+curl -L "https://api.snapgen.org/v1/videos/task_01HXYZ/content?model=video-ds-2.0-fast" \
+  -H "Authorization: Bearer $SNAPGEN_API_KEY" \
   --output video.mp4
 ```
 

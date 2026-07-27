@@ -1,10 +1,10 @@
 ---
 title: "GPT-5.4"
-description: "Call the gpt-5.4 text model through FreeModel-compatible text protocols."
+description: "Call the gpt-5.4 text model through SnapGen-compatible text protocols."
 api: "POST /v1/chat/completions"
 ---
 
-Use `gpt-5.4` for OpenAI-compatible chat and streaming workloads. The same model ID also works with FreeModel's Responses, Anthropic Messages, and Gemini native compatibility routes.
+Use `gpt-5.4` for OpenAI-compatible chat and streaming workloads. The same model ID also works with SnapGen's Responses, Anthropic Messages, and Gemini native compatibility routes.
 
 | Property | Value |
 | --- | --- |
@@ -28,8 +28,8 @@ Use `gpt-5.4` for OpenAI-compatible chat and streaming workloads. The same model
 ## Request
 
 ```bash
-curl https://api.freemodel.app/v1/chat/completions \
-  -H "Authorization: Bearer $FREEMODEL_API_KEY" \
+curl https://api.snapgen.org/v1/chat/completions \
+  -H "Authorization: Bearer $SNAPGEN_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "gpt-5.4",
@@ -50,5 +50,5 @@ Read generated text from `choices[0].message.content`. See [Chat Completions pro
 
 <Note>
   Billing uses the normalized input and output token counts returned by the
-  gateway. Confirm live rates on the [models page](https://freemodel.app/models).
+  gateway. Confirm live rates on the [models page](https://snapgen.org/models).
 </Note>

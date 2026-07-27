@@ -1,20 +1,20 @@
 ---
 title: "Codex CLI"
-description: "Configure Codex CLI with FreeModel's OpenAI Responses-compatible endpoint."
+description: "Configure Codex CLI with SnapGen's OpenAI Responses-compatible endpoint."
 ---
 
-Codex CLI supports custom model providers in `~/.codex/config.toml`. FreeModel's `/v1/responses` route was verified with the current Codex CLI and GPT text models.
+Codex CLI supports custom model providers in `~/.codex/config.toml`. SnapGen's `/v1/responses` route was verified with the current Codex CLI and GPT text models.
 
 ## Prerequisites
 
 - Install or update Codex CLI and confirm `codex --version` works.
-- Create a FreeModel API key and add prepaid balance.
+- Create a SnapGen API key and add prepaid balance.
 - Use a current text model. `gpt-5.4-mini` is the lowest-cost starting point.
 
 ## Set the API key
 
 ```bash
-export FREEMODEL_API_KEY="sk-xxxx"
+export SNAPGEN_API_KEY="sk-xxxx"
 ```
 
 Add that export to your shell profile or load it from a secret manager. Do not put the key directly in `config.toml`.
@@ -25,13 +25,13 @@ Edit `~/.codex/config.toml`:
 
 ```toml
 model = "gpt-5.4-mini"
-model_provider = "freemodel"
+model_provider = "snapgen"
 
-[model_providers.freemodel]
-name = "FreeModel"
-base_url = "https://api.freemodel.app/v1"
+[model_providers.snapgen]
+name = "SnapGen"
+base_url = "https://api.snapgen.org/v1"
 wire_api = "responses"
-env_key = "FREEMODEL_API_KEY"
+env_key = "SNAPGEN_API_KEY"
 ```
 
 `wire_api` must be `responses`. Current Codex versions do not use Chat Completions for custom agent sessions.
@@ -42,7 +42,7 @@ env_key = "FREEMODEL_API_KEY"
 codex exec "Reply with OK only."
 ```
 
-The startup summary should show `provider: freemodel` and your selected model. Use `codex` for an interactive session.
+The startup summary should show `provider: snapgen` and your selected model. Use `codex` for an interactive session.
 
 ## Switch models
 
@@ -58,11 +58,11 @@ Current model IDs include `gpt-5.4`, `gpt-5.4-mini`, `gpt-5.5`, `gpt-5.6`, `gpt-
 
 <AccordionGroup>
   <Accordion title="Codex opens a ChatGPT sign-in flow">
-    Confirm `model_provider = "freemodel"` is at the top level and the provider
-    block has the same `freemodel` identifier.
+    Confirm `model_provider = "snapgen"` is at the top level and the provider
+    block has the same `snapgen` identifier.
   </Accordion>
   <Accordion title="Codex reports a missing API key">
-    Export `FREEMODEL_API_KEY` in the shell that launches Codex. The `env_key`
+    Export `SNAPGEN_API_KEY` in the shell that launches Codex. The `env_key`
     field names the variable; it does not contain the secret itself.
   </Accordion>
   <Accordion title="The provider rejects wire_api">

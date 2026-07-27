@@ -1,10 +1,10 @@
 ---
 title: "GPT-5.5"
-description: "Call the gpt-5.5 text model through FreeModel."
+description: "Call the gpt-5.5 text model through SnapGen."
 api: "POST /v1/chat/completions"
 ---
 
-Use `gpt-5.5` for higher-output-value text and coding workflows while keeping the same request shape used by other FreeModel text routes.
+Use `gpt-5.5` for higher-output-value text and coding workflows while keeping the same request shape used by other SnapGen text routes.
 
 | Property | Value |
 | --- | --- |
@@ -28,8 +28,8 @@ Use `gpt-5.5` for higher-output-value text and coding workflows while keeping th
 ## Request
 
 ```bash
-curl https://api.freemodel.app/v1/chat/completions \
-  -H "Authorization: Bearer $FREEMODEL_API_KEY" \
+curl https://api.snapgen.org/v1/chat/completions \
+  -H "Authorization: Bearer $SNAPGEN_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "gpt-5.5",

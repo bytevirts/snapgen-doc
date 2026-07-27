@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Node SDK"
-description: "Use FreeModel with the official OpenAI JavaScript SDK."
+description: "Use SnapGen with the official OpenAI JavaScript SDK."
 ---
 
 Install the official SDK.
@@ -9,7 +9,7 @@ Install the official SDK.
 npm install openai
 ```
 
-Set `baseURL` to the FreeModel OpenAI-compatible endpoint.
+Set `baseURL` to the SnapGen OpenAI-compatible endpoint.
 
 ```javascript
 const OpenAI = require("openai");
@@ -17,7 +17,7 @@ const OpenAI = require("openai");
 async function main() {
   const client = new OpenAI({
     apiKey: "sk-xxxx",
-    baseURL: "https://api.freemodel.app/v1",
+    baseURL: "https://api.snapgen.org/v1",
   });
 
   const response = await client.chat.completions.create({
@@ -41,7 +41,7 @@ const OpenAI = require("openai");
 async function main() {
   const client = new OpenAI({
     apiKey: "sk-xxxx",
-    baseURL: "https://api.freemodel.app/v1",
+    baseURL: "https://api.snapgen.org/v1",
   });
 
   const stream = await client.chat.completions.create({

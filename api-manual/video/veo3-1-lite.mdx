@@ -23,8 +23,8 @@ api: "POST /v1/videos"
 ## Request
 
 ```bash
-curl https://api.freemodel.app/v1/videos \
-  -H "Authorization: Bearer $FREEMODEL_API_KEY" \
+curl https://api.snapgen.org/v1/videos \
+  -H "Authorization: Bearer $SNAPGEN_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "veo3-1-lite",
@@ -36,6 +36,6 @@ curl https://api.freemodel.app/v1/videos \
 
 Follow the [Video API workflow](/api-reference/video-generation) and include `model=veo3-1-lite` when polling and downloading.
 
-<Card title="Open the Veo 3.1 playground" icon="play" href="https://freemodel.app/models/veo3-1">
+<Card title="Open the Veo 3.1 playground" icon="play" href="https://snapgen.org/models/veo3-1">
   Choose Lite and optionally add public start and end frames.
 </Card>

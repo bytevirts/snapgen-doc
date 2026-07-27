@@ -3,17 +3,17 @@ title: "Quickstart"
 description: "Create a key, choose a model, and send text, image, or video requests."
 ---
 
-This guide takes you from a new account to a working FreeModel request.
+This guide takes you from a new account to a working SnapGen request.
 
 ## Step 1: Get an API key
 
-1. [Create a FreeModel account](https://freemodel.app/sign-up).
+1. [Create a SnapGen account](https://snapgen.org/sign-up).
 2. Add prepaid balance under **Console > Billing**.
 3. Open **Console > API Keys** and create a key.
 4. Store the key in a server-side environment variable.
 
 ```bash
-export FREEMODEL_API_KEY="sk-xxxx"
+export SNAPGEN_API_KEY="sk-xxxx"
 ```
 
 ## Step 2: Choose a model
@@ -21,8 +21,8 @@ export FREEMODEL_API_KEY="sk-xxxx"
 List the models available to your key:
 
 ```bash
-curl https://api.freemodel.app/v1/models \
-  -H "Authorization: Bearer $FREEMODEL_API_KEY"
+curl https://api.snapgen.org/v1/models \
+  -H "Authorization: Bearer $SNAPGEN_API_KEY"
 ```
 
 Start with one of these routes:
@@ -37,8 +37,8 @@ Start with one of these routes:
 
 <CodeGroup>
 ```bash Text
-curl https://api.freemodel.app/v1/chat/completions \
-  -H "Authorization: Bearer $FREEMODEL_API_KEY" \
+curl https://api.snapgen.org/v1/chat/completions \
+  -H "Authorization: Bearer $SNAPGEN_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "gpt-5.4-mini",
@@ -47,8 +47,8 @@ curl https://api.freemodel.app/v1/chat/completions \
 ```
 
 ```bash Image
-curl https://api.freemodel.app/v1/images/generations \
-  -H "Authorization: Bearer $FREEMODEL_API_KEY" \
+curl https://api.snapgen.org/v1/images/generations \
+  -H "Authorization: Bearer $SNAPGEN_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "gpt-image-2",
@@ -58,8 +58,8 @@ curl https://api.freemodel.app/v1/images/generations \
 ```
 
 ```bash Video
-curl https://api.freemodel.app/v1/videos \
-  -H "Authorization: Bearer $FREEMODEL_API_KEY" \
+curl https://api.snapgen.org/v1/videos \
+  -H "Authorization: Bearer $SNAPGEN_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "model": "gemini-omni-t2v",
@@ -75,15 +75,15 @@ Text and image requests return their content directly. Video requests return a t
 ## Step 4: Check a video task
 
 ```bash
-curl "https://api.freemodel.app/v1/videos/$VIDEO_ID?model=gemini-omni-t2v" \
-  -H "Authorization: Bearer $FREEMODEL_API_KEY"
+curl "https://api.snapgen.org/v1/videos/$VIDEO_ID?model=gemini-omni-t2v" \
+  -H "Authorization: Bearer $SNAPGEN_API_KEY"
 ```
 
 When the status becomes `completed`, download the file:
 
 ```bash
-curl -L "https://api.freemodel.app/v1/videos/$VIDEO_ID/content?model=gemini-omni-t2v" \
-  -H "Authorization: Bearer $FREEMODEL_API_KEY" \
+curl -L "https://api.snapgen.org/v1/videos/$VIDEO_ID/content?model=gemini-omni-t2v" \
+  -H "Authorization: Bearer $SNAPGEN_API_KEY" \
   --output video.mp4
 ```
 

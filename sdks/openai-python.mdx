@@ -1,6 +1,6 @@
 ---
 title: "OpenAI Python SDK"
-description: "Use FreeModel with the official OpenAI Python SDK."
+description: "Use SnapGen with the official OpenAI Python SDK."
 ---
 
 Install the official SDK.
@@ -9,14 +9,14 @@ Install the official SDK.
 pip install openai
 ```
 
-Set `base_url` to the FreeModel OpenAI-compatible endpoint.
+Set `base_url` to the SnapGen OpenAI-compatible endpoint.
 
 ```python
 from openai import OpenAI
 
 client = OpenAI(
     api_key="sk-xxxx",
-    base_url="https://api.freemodel.app/v1",
+    base_url="https://api.snapgen.org/v1",
 )
 
 response = client.chat.completions.create(
@@ -36,7 +36,7 @@ from openai import OpenAI
 
 client = OpenAI(
     api_key="sk-xxxx",
-    base_url="https://api.freemodel.app/v1",
+    base_url="https://api.snapgen.org/v1",
 )
 
 stream = client.chat.completions.create(
