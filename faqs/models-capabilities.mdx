@@ -19,16 +19,24 @@ description: "Choose a model, protocol, duration, resolution, and reference mode
   </Accordion>
   <Accordion title="Is familySlug part of the video API?">
     No. `familySlug` is an internal Portal value. Public video requests use
-    `model`, `prompt`, `seconds`, and the model-specific framing fields.
+    `model`, `prompt`, and the selected model's media, duration, and framing
+    fields.
   </Accordion>
   <Accordion title="Which Gemini Omni resolutions are available?">
-    Choose a 720p or 1080p landscape or portrait `size`. Square output uses
-    `1024x1024`. Each request generates a fixed 10-second result.
+    Choose `1280x720` or `1920x1080` for 16:9 output. Choose `720x1280` or
+    `1080x1920` for 9:16 output. Gemini Omni does not support square output.
+    T2V, I2V, and R2V generate a fixed 10-second result. Extend derives its
+    duration from `video_url`, so do not send `seconds` for that model.
+  </Accordion>
+  <Accordion title="Which inputs do Gemini Omni video modes accept?">
+    I2V requires one or two source images. R2V requires one to five reference
+    images. Each image is limited to 5 MiB. Extend requires one source video in
+    the singular `video_url` field and accepts up to five optional image
+    references. T2V does not accept image or video inputs.
   </Accordion>
   <Accordion title="Which Veo 3.1 resolutions are available?">
-    Model IDs without `-4k` produce 1080p. `veo3-1-lite-4k`,
-    `veo3-1-fast-4k`, and `veo3-1-quality-4k` produce 4K. All Veo routes are
-    fixed at 8 seconds.
+    Model IDs without `-4k` produce 1080p. `veo3-1-lite-4k`, `veo3-1-fast-4k`,
+    and `veo3-1-quality-4k` produce 4K. All Veo routes are fixed at 8 seconds.
   </Accordion>
   <Accordion title="How many Veo reference images can I send?">
     Lite, Fast, and Quality routes accept zero to two public image URLs.

@@ -1,17 +1,18 @@
 ---
 title: "Gemini Omni Extend"
-description: "Extend a Gemini Omni source asset into a 10-second result."
+description: "Extend a public source video with optional image references."
 api: "POST /v1/videos"
 ---
 
-`gemini-omni-extend` continues motion from supplied public source assets. The SnapGen compatibility request still uses the `image_urls` field for one to five source URLs.
+`gemini-omni-extend` continues motion from one public source video. Send the video through the singular `video_url` field. You can also supply up to five optional reference images through `image_urls`.
 
-| Property | Value |
-| --- | --- |
-| Model ID | `gemini-omni-extend` |
-| Input | Prompt + 1-5 source asset URLs |
-| Output | 720p or 1080p, native audio |
-| Price | $0.25 per request (25 credits) |
+| Property | Value                                                 |
+| -------- | ----------------------------------------------------- |
+| Model ID | `gemini-omni-extend`                                  |
+| Input    | Prompt + one source video + up to 5 reference images  |
+| Duration | Determined by the source video; do not send `seconds` |
+| Output   | 720p or 1080p, native audio                           |
+| Price    | $0.25 per request (25 credits)                        |
 
 <ParamField body="model" type="string" required>
   Set to `gemini-omni-extend`.
@@ -21,17 +22,19 @@ api: "POST /v1/videos"
   Describe how movement, camera direction, and audio should continue.
 </ParamField>
 
-<ParamField body="seconds" type="string" required>
-  Set to `"10"`. SnapGen validates this fixed task duration.
-</ParamField>
-
 <ParamField body="size" type="string" default="1280x720">
-  Use a landscape, portrait, or square pixel size.
+  Use `1280x720` or `1920x1080` for 16:9 output. Use `720x1280` or `1080x1920`
+  for 9:16 output. Other sizes are not supported.
 </ParamField>
 
-<ParamField body="image_urls" type="string[]" required>
-  One to five publicly reachable source URLs. The field name is part of the
-  SnapGen compatibility API even when the source represents extension input.
+<ParamField body="video_url" type="string" required>
+  One publicly reachable `http` or `https` source-video URL. Send a string, not
+  an array.
+</ParamField>
+
+<ParamField body="image_urls" type="string[]">
+  Up to five optional, publicly reachable `http` or `https` reference-image
+  URLs. Each reference image must be no larger than 5 MiB.
 </ParamField>
 
 ## Request
@@ -43,15 +46,15 @@ curl https://api.snapgen.org/v1/videos \
   -d '{
     "model": "gemini-omni-extend",
     "prompt": "Continue the camera move through the doorway without a cut",
-    "seconds": "10",
     "size": "1280x720",
-    "image_urls": ["https://example.com/source-asset.jpg"]
+    "video_url": "https://example.com/source-video.mp4",
+    "image_urls": ["https://example.com/character-reference.jpg"]
   }'
 ```
 
 The response returns a queued task `id`. Follow the [Video API workflow](/api-reference/video-generation) to poll and download.
 
 <Note>
-  `seconds` is required by the public SnapGen request even though the
-  extension route does not forward a separate duration field upstream.
+  Do not send `seconds` with this model. The extension contract derives the
+  output duration from the source video.
 </Note>

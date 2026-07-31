@@ -24,11 +24,11 @@ Use the HTTP status code together with `error.type` and `error.code` to decide h
 | 400        | `invalid_request`         | A video request has a duration or aspect parameter unsupported by the selected model. | Use the model-specific values in [Video generation](/api-reference/video-generation). |
 | 402        | `insufficient_user_quota` | Your prepaid balance is empty or insufficient.                                        | Add balance in the Console under **Billing**.                                         |
 | 429        | Rate limit error          | Too many requests were sent in a short period.                                        | Back off and retry with exponential delay.                                            |
-| 500-599    | Server error              | SnapGen or an upstream provider could not complete the request.                     | Retry transient failures with backoff.                                                |
+| 500-599    | Server error              | SnapGen or an upstream provider could not complete the request.                       | Retry transient failures with backoff.                                                |
 
 ## Video request error
 
-A video request with a duration unsupported by the selected model can return a `400` `invalid_request` error. Gemini Omni models require `"10"`; Seedance 2 models accept `"5"`, `"10"`, or `"15"`.
+A video request with a duration unsupported by the selected model can return a `400` `invalid_request` error. Gemini Omni T2V, I2V, and R2V require `"10"`. Gemini Omni Extend derives duration from `video_url` and does not use `seconds`. Seedance 2 models accept `"5"`, `"10"`, or `"15"`.
 
 ```bash
 curl https://api.snapgen.org/v1/videos \

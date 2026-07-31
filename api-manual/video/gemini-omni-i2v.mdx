@@ -4,14 +4,14 @@ description: "Animate source images into a fixed 10-second video."
 api: "POST /v1/videos"
 ---
 
-`gemini-omni-i2v` creates a 10-second video from a prompt and one to five public source-image URLs.
+`gemini-omni-i2v` creates a 10-second video from a prompt and one or two public source-image URLs. The first image is the start frame. The optional second image is the end frame.
 
-| Property | Value |
-| --- | --- |
-| Model ID | `gemini-omni-i2v` |
-| Input | Prompt + 1-5 source images |
-| Output | 720p or 1080p, native audio |
-| Price | $0.25 per request (25 credits) |
+| Property | Value                          |
+| -------- | ------------------------------ |
+| Model ID | `gemini-omni-i2v`              |
+| Input    | Prompt + 1-2 source images     |
+| Output   | 720p or 1080p, native audio    |
+| Price    | $0.25 per request (25 credits) |
 
 <ParamField body="model" type="string" required>
   Set to `gemini-omni-i2v`.
@@ -26,12 +26,13 @@ api: "POST /v1/videos"
 </ParamField>
 
 <ParamField body="size" type="string" default="1280x720">
-  Use a landscape, portrait, or square pixel size. The gateway maps the
-  dimensions to the matching aspect ratio and 720p or 1080p tier.
+  Use `1280x720` or `1920x1080` for 16:9 output. Use `720x1280` or `1080x1920`
+  for 9:16 output. Other sizes are not supported.
 </ParamField>
 
 <ParamField body="image_urls" type="string[]" required>
-  One to five publicly reachable `http` or `https` image URLs.
+  One or two publicly reachable `http` or `https` image URLs. Each source image
+  must be no larger than 5 MiB.
 </ParamField>
 
 ## Request

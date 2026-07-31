@@ -9,11 +9,17 @@ Video generation can take several minutes and must not depend on one long-lived 
 
 Use the selected model page to validate duration, framing, and reference rules in your own application.
 
-| Family | Duration | Framing field |
-| --- | --- | --- |
-| Gemini Omni | Fixed 10 seconds | `size` |
-| Seedance 2 | 5, 10, or 15 seconds | `aspect_ratio` |
-| Veo 3.1 | Fixed 8 seconds | `aspect_ratio` |
+| Family                        | Duration                              | Framing field  |
+| ----------------------------- | ------------------------------------- | -------------- |
+| Gemini Omni T2V, I2V, and R2V | Fixed 10 seconds                      | `size`         |
+| Gemini Omni Extend            | Source-video duration; omit `seconds` | `size`         |
+| Seedance 2                    | 5, 10, or 15 seconds                  | `aspect_ratio` |
+| Veo 3.1                       | Fixed 8 seconds                       | `aspect_ratio` |
+
+Gemini Omni supports only 16:9 and 9:16 output at 720p or 1080p. I2V
+requires one or two images. R2V requires one to five images. Each Gemini Omni
+image input is limited to 5 MiB. Extend requires one `video_url` and accepts up
+to five optional image references.
 
 Do not submit `familySlug`. It is not part of the public API.
 
@@ -46,7 +52,8 @@ async function waitForVideo(id, model) {
 
     const task = await response.json();
     if (task.status === "completed") return task;
-    if (task.status === "failed") throw new Error(task.error?.message || "Video failed");
+    if (task.status === "failed")
+      throw new Error(task.error?.message || "Video failed");
 
     await new Promise((resolve) => setTimeout(resolve, 15_000));
   }

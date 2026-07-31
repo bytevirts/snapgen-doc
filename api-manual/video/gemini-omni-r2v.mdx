@@ -6,12 +6,12 @@ api: "POST /v1/videos"
 
 `gemini-omni-r2v` uses one to five reference images to guide identity, objects, composition, or style across a 10-second result.
 
-| Property | Value |
-| --- | --- |
-| Model ID | `gemini-omni-r2v` |
-| Input | Prompt + 1-5 reference images |
-| Output | 720p or 1080p, native audio |
-| Price | $0.25 per request (25 credits) |
+| Property | Value                          |
+| -------- | ------------------------------ |
+| Model ID | `gemini-omni-r2v`              |
+| Input    | Prompt + 1-5 reference images  |
+| Output   | 720p or 1080p, native audio    |
+| Price    | $0.25 per request (25 credits) |
 
 <ParamField body="model" type="string" required>
   Set to `gemini-omni-r2v`.
@@ -26,12 +26,13 @@ api: "POST /v1/videos"
 </ParamField>
 
 <ParamField body="size" type="string" default="1280x720">
-  Use a landscape, portrait, or square pixel size. The gateway selects the
-  matching 720p or 1080p output tier.
+  Use `1280x720` or `1920x1080` for 16:9 output. Use `720x1280` or `1080x1920`
+  for 9:16 output. Other sizes are not supported.
 </ParamField>
 
 <ParamField body="image_urls" type="string[]" required>
-  One to five publicly reachable reference-image URLs.
+  One to five publicly reachable `http` or `https` reference-image URLs. Each
+  reference image must be no larger than 5 MiB.
 </ParamField>
 
 ## Request
@@ -44,7 +45,7 @@ curl https://api.snapgen.org/v1/videos \
     "model": "gemini-omni-r2v",
     "prompt": "Use the supplied product and color language in a slow studio orbit",
     "seconds": "10",
-    "size": "1024x1024",
+    "size": "1920x1080",
     "image_urls": [
       "https://example.com/product.jpg",
       "https://example.com/style.jpg"

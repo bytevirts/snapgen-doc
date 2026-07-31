@@ -6,12 +6,12 @@ api: "POST /v1/videos"
 
 `gemini-omni-t2v` creates a video from a text prompt. It does not accept `image_urls`.
 
-| Property | Value |
-| --- | --- |
-| Model ID | `gemini-omni-t2v` |
-| Duration | Fixed 10 seconds |
-| Output | 720p or 1080p, native audio |
-| Price | $0.25 per request (25 credits) |
+| Property | Value                          |
+| -------- | ------------------------------ |
+| Model ID | `gemini-omni-t2v`              |
+| Duration | Fixed 10 seconds               |
+| Output   | 720p or 1080p, native audio    |
+| Price    | $0.25 per request (25 credits) |
 
 <ParamField body="model" type="string" required>
   Set to `gemini-omni-t2v`.
@@ -26,8 +26,8 @@ api: "POST /v1/videos"
 </ParamField>
 
 <ParamField body="size" type="string" default="1280x720">
-  Recommended values are `1280x720` or `1920x1080` for landscape,
-  `720x1280` or `1080x1920` for portrait, and `1024x1024` for square.
+  Use `1280x720` or `1920x1080` for 16:9 output. Use `720x1280` or `1080x1920`
+  for 9:16 output. Other sizes are not supported.
 </ParamField>
 
 ## Request

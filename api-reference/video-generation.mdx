@@ -6,24 +6,26 @@ api: "POST /v1/videos"
 
 All SnapGen video routes use the same asynchronous workflow. Choose a model from the **Video Series** sidebar, submit a request, save the returned `id`, and poll until the task completes.
 
-The model page defines the accepted duration, aspect ratio, resolution, and reference-image rules. Do not send values from one model family to another.
+The model page defines the accepted duration, aspect ratio, resolution, image-reference, and source-video rules. Do not send values from one model family to another.
 
 <ParamField body="model" type="string" required>
-  An available video model ID. Call [`GET /v1/models`](/api-reference/list-models)
-  and select a model whose `supported_endpoint_types` includes `openai-video`.
+  An available video model ID. Call [`GET
+  /v1/models`](/api-reference/list-models) and select a model whose
+  `supported_endpoint_types` includes `openai-video`.
 </ParamField>
 
 <ParamField body="prompt" type="string" required>
   Describe the subject, action, camera movement, lighting, and audio intent.
 </ParamField>
 
-<ParamField body="seconds" type="string" required>
-  A model-specific duration. Use the exact value documented on the selected
-  model page.
+<ParamField body="seconds" type="string">
+  A model-specific duration. Send it only when the selected model page lists it.
+  Do not send `seconds` with `gemini-omni-extend`.
 </ParamField>
 
 <ParamField body="size" type="string">
-  Gemini Omni only. Pass pixel dimensions such as `1280x720`.
+  Gemini Omni only. Use a supported 16:9 or 9:16 size: `1280x720`, `720x1280`,
+  `1920x1080`, or `1080x1920`.
 </ParamField>
 
 <ParamField body="aspect_ratio" type="string">
@@ -31,7 +33,13 @@ The model page defines the accepted duration, aspect ratio, resolution, and refe
 </ParamField>
 
 <ParamField body="image_urls" type="string[]">
-  Public `http` or `https` reference URLs when the selected model accepts them.
+  Public `http` or `https` image URLs when the selected model accepts them.
+  Follow its required count and per-image size limit.
+</ParamField>
+
+<ParamField body="video_url" type="string">
+  The singular public `http` or `https` source-video URL required by
+  `gemini-omni-extend`. Do not send an array.
 </ParamField>
 
 <ParamField body="webhook" type="string">
@@ -79,7 +87,11 @@ curl -L "https://api.snapgen.org/v1/videos/task_01HXYZ/content?model=video-ds-2.
 Poll every 10 to 20 seconds while `status` is `queued` or `in_progress`. Download only after `status` becomes `completed`.
 
 <CardGroup cols={2}>
-  <Card title="Task status API" icon="list-check" href="/api-reference/task-status">
+  <Card
+    title="Task status API"
+    icon="list-check"
+    href="/api-reference/task-status"
+  >
     Query the normalized task record and final media URLs.
   </Card>
   <Card title="Webhooks" icon="webhook" href="/api-reference/webhooks">
